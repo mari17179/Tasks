@@ -1,13 +1,10 @@
 <?php
 	echo "Задача скобки<br />";
 
-	$testStrings = array("5 * (4 - 2)", "5 * (4 - 2(", "6 + ) * (9 - 4)(");
-
-	for ($stringNumber = 0; $stringNumber < count($testStrings); $stringNumber++) {
+	function checkBracketsInString($stringToCheck){
 		$countOpeningBrackets = 0;
 		$countClosingBrackets = 0;
 		$isFirstBracketOpening = True;
-		$stringToCheck = $testStrings[$stringNumber];
 		for ($i = 0; $i < strlen($stringToCheck); $i++) {
 			if ($stringToCheck[$i] == ')' ) {
 				if ($countOpeningBrackets == 0 && $countClosingBrackets == 0) {
@@ -31,6 +28,13 @@
 		else {
 			echo "Всё ок.<br />";
 		}
+	}
+
+
+	$testStrings = array("5 * (4 - 2)", "5 * (4 - 2(", "6 + ) * (9 - 4)(");
+
+	for ($stringNumber = 0; $stringNumber < count($testStrings); $stringNumber++) {
+		checkBracketsInString($testStrings[$stringNumber]);
 	}
 
 ?>
